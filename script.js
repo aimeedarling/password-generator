@@ -17,13 +17,15 @@ function generatePassword() {
     if (length >= 8 && length <= 128) {
         const lowercase = "abcdefghijklmnopqrstuvwxyz"
         const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        const specialChar = "!@#$%^&*()-+?/<>{}[]"
         const number = "1234567890"
+        const specialChar = "!@#$%^&*()-+?/<>{}[]"
+
 
         const checkLowercase = confirm("Use lowercase letters?")
         const checkUppercase = confirm("Use uppercase letters?")
-        const checkSpecialChar = confirm("Use special characters?")
         const checkNumber = confirm("Use numbers?")
+        const checkSpecialChar = confirm("Use special characters?")
+        
 
         for (let i = 0; i < length; i++) {
             if (checkLowercase && newPassword.length < length) {
@@ -34,18 +36,21 @@ function generatePassword() {
                 let index = Math.floor(Math.random() * uppercase.length)
                 newPassword = newPassword + uppercase[index]
             }
-            if (checkSpecialChar && newPassword.length < length) {
-                let index = Math.floor(Math.random() * specialChar.length)
-                newPassword = newPassword + specialChar[index]
-            }
             if (checkNumber && newPassword.length < length) {
                 let index = Math.floor(Math.random() * number.length)
                 newPassword = newPassword + number[index]
             }
+            if (checkSpecialChar && newPassword.length < length) {
+                let index = Math.floor(Math.random() * specialChar.length)
+                newPassword = newPassword + specialChar[index]
+            }
+
         }
-    } else { 
-        alert("Invalid entry") }
-        return newPassword
+
+    } else {
+        alert("Invalid entry")
+    }
+    return newPassword
 }
 
 // Add event listener to generate button
